@@ -21,13 +21,9 @@ struct ContentView: View {
             VStack {
                 ColorRectangleView(valueColorRed: $sliderValueRed, valueColorGreen: $sliderValueGreen, valueColorBlue: $sliderValueBlue)
                 VStack() {
-                    ColorSliderView(value: $sliderValueRed, step: sliderStep)
-                        .accentColor(.red)
-                    ColorSliderView(value: $sliderValueGreen, step: sliderStep)
-                        .accentColor(.green)
-                    ColorSliderView(value: $sliderValueBlue, step: sliderStep)
-                        .accentColor(.blue)
-
+                    ColorSliderView(value: $sliderValueRed, step: sliderStep, color: .red)
+                    ColorSliderView(value: $sliderValueGreen, step: sliderStep, color: .green)
+                    ColorSliderView(value: $sliderValueBlue, step: sliderStep, color: .blue)
                 }
                 .padding(.top, 20)
                 Spacer()
