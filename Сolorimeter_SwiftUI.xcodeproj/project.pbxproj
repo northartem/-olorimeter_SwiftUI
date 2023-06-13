@@ -11,6 +11,8 @@
 		88810ADB2A380EEE00E06F8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88810ADA2A380EEE00E06F8A /* ContentView.swift */; };
 		88810ADD2A380EEE00E06F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88810ADC2A380EEE00E06F8A /* Assets.xcassets */; };
 		88810AE02A380EEE00E06F8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88810ADF2A380EEE00E06F8A /* Preview Assets.xcassets */; };
+		88810AE92A382A7300E06F8A /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88810AE82A382A7300E06F8A /* ColorSliderView.swift */; };
+		8893C2862A382D6300CD3BD0 /* ColorRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8893C2852A382D6300CD3BD0 /* ColorRectangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		88810ADA2A380EEE00E06F8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		88810ADC2A380EEE00E06F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88810ADF2A380EEE00E06F8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		88810AE82A382A7300E06F8A /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
+		8893C2852A382D6300CD3BD0 /* ColorRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorRectangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				88810AD82A380EEE00E06F8A /* _olorimeter_SwiftUIApp.swift */,
 				88810ADA2A380EEE00E06F8A /* ContentView.swift */,
+				88810AE82A382A7300E06F8A /* ColorSliderView.swift */,
+				8893C2852A382D6300CD3BD0 /* ColorRectangleView.swift */,
 				88810ADC2A380EEE00E06F8A /* Assets.xcassets */,
 				88810ADE2A380EEE00E06F8A /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				88810ADB2A380EEE00E06F8A /* ContentView.swift in Sources */,
 				88810AD92A380EEE00E06F8A /* _olorimeter_SwiftUIApp.swift in Sources */,
+				8893C2862A382D6300CD3BD0 /* ColorRectangleView.swift in Sources */,
+				88810AE92A382A7300E06F8A /* ColorSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
