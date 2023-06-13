@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var sliderValueRed = Double.random(in: 1...255)
     @State private var sliderValueGreen = Double.random(in: 1...255)
     @State private var sliderValueBlue = Double.random(in: 1...255)
+    @FocusState private var focus: Bool
     
     private let sliderStep = 1.0
     
@@ -24,6 +25,15 @@ struct ContentView: View {
                     ColorSliderView(value: $sliderValueRed, step: sliderStep, color: .red)
                     ColorSliderView(value: $sliderValueGreen, step: sliderStep, color: .green)
                     ColorSliderView(value: $sliderValueBlue, step: sliderStep, color: .blue)
+                }
+                .focused($focus)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("DONE") {
+                            focus = false
+                        }
+                    }
                 }
                 .padding(.top, 20)
                 Spacer()

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ColorSliderView: View {
+    @State private var text = ""
     @Binding var value: Double
     let step: Double
     let color: Color
@@ -16,9 +17,15 @@ struct ColorSliderView: View {
         HStack {
             Text("\(lround(value))")
                 .frame(width: 31, alignment: .center)
-                
             Slider(value: $value, in: 0...255, step: step)
                 .tint(color)
+                .onChange(of: value) { newValue in
+                    text = "\(lround(value))"
+                }
+            TextFieldView(textValue: $text, sliderValue: $value)
+        }
+        .onAppear {
+            text = "\(lround(value))"
         }
     }
     

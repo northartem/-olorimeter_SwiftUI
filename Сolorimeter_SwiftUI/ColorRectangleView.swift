@@ -16,7 +16,7 @@ struct ColorRectangleView: View {
         RoundedRectangle(cornerRadius: 20)
             .foregroundColor(Color(red: valueColorRed/255, green: valueColorGreen/255, blue: valueColorBlue/255))
             .frame(height: 180)
-            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.white, lineWidth: 2))
+            .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black, lineWidth: 1))
     }
 }
 
