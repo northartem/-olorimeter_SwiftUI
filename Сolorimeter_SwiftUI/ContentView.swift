@@ -8,29 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var sliderValueRed = Double.random(in: 1...255)
-    @State private var sliderValueGreen = Double.random(in: 1...255)
-    @State private var sliderValueBlue = Double.random(in: 1...255)
-    @FocusState private var focus: Bool
+    @State private var red = Double.random(in: 1...255)
+    @State private var green = Double.random(in: 1...255)
+    @State private var blue = Double.random(in: 1...255)
     
-    private let sliderStep = 1.0
+    @FocusState private var focus: Bool
     
     var body: some View {
         ZStack {
-            Color.cyan
-                .ignoresSafeArea()
             VStack {
-                ColorRectangleView(valueColorRed: $sliderValueRed, valueColorGreen: $sliderValueGreen, valueColorBlue: $sliderValueBlue)
+                ColorRectangleView(red: red, green: green, blue: blue)
                 VStack() {
-                    ColorSliderView(value: $sliderValueRed, step: sliderStep, color: .red)
-                    ColorSliderView(value: $sliderValueGreen, step: sliderStep, color: .green)
-                    ColorSliderView(value: $sliderValueBlue, step: sliderStep, color: .blue)
+                    ColorSliderView(sliderValue: $red, color: .red)
+                    ColorSliderView(sliderValue: $green, color: .green)
+                    ColorSliderView(sliderValue: $blue, color: .blue)
                 }
                 .focused($focus)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
-                        Button("DONE") {
+                        Button("Done") {
                             focus = false
                         }
                     }
@@ -39,7 +36,20 @@ struct ContentView: View {
                 Spacer()
             }
             .padding()
+            .onTapGesture { closed() }
+            .background(Color("background"))
         }
+    }
+}
+
+extension ContentView {
+    private func closed() {
+        UIApplication.shared.sendAction(
+            #selector(
+                UIResponder.resignFirstResponder
+            ),
+            to: nil, from: nil, for: nil
+        )
     }
 }
 

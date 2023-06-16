@@ -59,8 +59,8 @@
 			children = (
 				88810AD82A380EEE00E06F8A /* Colorimeter_SwiftUIApp.swift */,
 				88810ADA2A380EEE00E06F8A /* ContentView.swift */,
-				88810AE82A382A7300E06F8A /* ColorSliderView.swift */,
 				8893C2852A382D6300CD3BD0 /* ColorRectangleView.swift */,
+				88810AE82A382A7300E06F8A /* ColorSliderView.swift */,
 				8893C2892A3867BE00CD3BD0 /* TextFieldView.swift */,
 				88810ADC2A380EEE00E06F8A /* Assets.xcassets */,
 				88810ADE2A380EEE00E06F8A /* Preview Content */,

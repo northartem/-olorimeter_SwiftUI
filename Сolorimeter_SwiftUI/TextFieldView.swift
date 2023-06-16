@@ -9,40 +9,27 @@ import SwiftUI
 
 struct TextFieldView: View {
     @Binding var textValue: String
-    @Binding var sliderValue: Double
     
-    @State private var alert = false
+    let action: () -> Void
     
     var body: some View {
-        TextField("", text: $textValue) { _ in
+        TextField("0", text: $textValue) { _ in
             withAnimation {
-                view()
+                action()
             }
         }
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .frame(width: 55)
-        .multilineTextAlignment(.center)
+        .multilineTextAlignment(.trailing)
         .keyboardType(.numberPad)
-        .alert("Wrong format", isPresented: $alert, actions: {}) {
-            Text("Input correct value")
-        }
+        
     }
 }
 
 struct TextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(textValue: .constant("11"), sliderValue: .constant(1))
+        TextFieldView(textValue: .constant("11"), action: {})
     }
 }
 
-extension TextFieldView {
-    func view() {
-        if let value = Double(textValue), (0...255).contains(value) {
-            self.sliderValue = value
-            return
-        }
-        alert.toggle()
-        sliderValue = 0.0
-        textValue = "0.0"
-    }
-}
+

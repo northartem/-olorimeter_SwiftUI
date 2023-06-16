@@ -8,30 +8,43 @@
 import SwiftUI
 
 struct ColorSliderView: View {
-    @State private var text = ""
-    @Binding var value: Double
-    let step: Double
+    @State private var textValue = ""
+    @State private var alert = false
+    @Binding var sliderValue: Double
+    
     let color: Color
     
     var body: some View {
         HStack {
-            Text("\(lround(value))")
-                .frame(width: 31, alignment: .center)
-            Slider(value: $value, in: 0...255, step: step)
+            Text("\(lround(sliderValue))")
+                .frame(width: 31, alignment: .leading)
+            Slider(value: $sliderValue, in: 0...255)
                 .tint(color)
-                .onChange(of: value) { newValue in
-                    text = "\(lround(value))"
+                .onChange(of: sliderValue) { newValue in
+                    textValue = "\(lround(sliderValue))"
                 }
-            TextFieldView(textValue: $text, sliderValue: $value)
+            TextFieldView(textValue: $textValue, action: checkValue)
+                .alert("Wrong format", isPresented: $alert, actions: {}) {
+                    Text("Input correct value")
+                }
         }
         .onAppear {
-            text = "\(lround(value))"
+            textValue = "\(lround(sliderValue))"
         }
     }
     
     struct ColorSliderView_Previews: PreviewProvider {
         static var previews: some View {
-            ColorSliderView(value: .constant(100), step: 1.0, color: .green)
+            ColorSliderView(sliderValue: .constant(100), color: .green)
         }
+    }
+    func checkValue() {
+        if let value = Double(textValue), (0...255).contains(value) {
+            self.sliderValue = value
+            return
+        }
+        alert.toggle()
+        sliderValue = 0.0
+        textValue = "0.0"
     }
 }
